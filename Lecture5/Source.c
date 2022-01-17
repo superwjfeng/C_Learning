@@ -1,159 +1,150 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
 
-#include <stdio.h>;
-#include <string.h>;
-#include <Windows.h>;
-#include <stdlib.h>
+
+/*
+int test()
+{
+	int a = 2;
+	if (a)
+		return 1;
+	return 0;
+}
+*/
+
 
 int main()
 {
+	//int age = 0;
+	//scanf("%d", &age);
+/*
+	if (age >= 18)
+		printf("Adult\n");
+	else
+		printf("Underage\n");
+		*/
 	/*
-	int ch = 0;
-	while ((ch = getchar()) != EOF)
-		putchar(ch);
+	if (age < 18)
+	{
+		printf("Underage\n");
+		printf("Study!");
+	}
+	else if (age >= 18 && age < 30)
+		printf("Best year\n");
+	else if (age >= 30 && age < 60)
+		printf("Middleage\n");
+	else
+		printf("Senior citizen\n");
 	*/
 
-	int ret = 0;
-	char password[20] = { 0 };
-	int ch = 0;
+	/*
+	int ret = test();
+	printf("ret = %d\n", ret);
+	*/
+	//int n = 0;
 
-	//printf("Please input your password:>");
-	//scanf("%s", password);
-	////getchar();
-	//while ((ch = getchar()) != '\n');//令缓冲区存储并清楚其他不需要的字符串
-	//printf("Please verify(Y/N):>");
-	//ret = getchar();
-	//if (ret == 'Y')	printf("Verify successfully\n");
-	//else printf("Verify cancelled\n");
+	//scanf("%d", &n);
+	//if (n % 2 == 1)
+	//	printf("Odd number\n");
 
-	//Only print number 0-9
+	//for (n = 0; n <= 100; n += 1)
+	//	if (n % 2 == 1)
+	//		printf("n=%d;", n);
+
+	//while (n <= 100)
+	//{
+	//	if (n % 2 == 1)
+	//		printf("n = %d;", n);
+	//	n++;
+	//}
+
+	//int i = 1;
+	//while (i <= 100)
+	//{
+	//	printf("i=%d;", i);
+	//	i+=2;
+	//}
+
+	//int day = 0;
+	//scanf("%d", &day);
+
+	//switch (day)
+	//{
+	//case 1:
+	//	printf("Monday\n");
+	//	break;
+	//case 2:
+	//	printf("Tuesday\n");
+	//	break;
+	//case 3:
+	//	printf("Wednesday\n");
+	//	break;
+	//case 4:
+	//	printf("Thursday\n");
+	//	break;
+	//case 5:
+	//	printf("Friday\n");
+	//	break;
+	//case 6:
+	//	printf("Saturday\n");
+	//	break;
+	//case 7:
+	//	printf("Sunday\n");
+	//	break;
+	//default: //No case is satisfied
+	//	printf("Wrong input!");
+	//	break; // No sequence requirment, but tradition is to put default and break at the end
+	//}
+	//int i = 1;
+	//while (i <= 10)
+	//{
+	//	if (5 == i)
+	//		break;
+	//	printf("%d\n", i);
+	//	i++;
+	//}
+
+	//int ch = getchar(); //'a'=97
+	//putchar(ch);
+
+	//int ch = 0;
 	//while ((ch = getchar()) != EOF)
 	//{
-	//	if (ch < '0' || ch>'9') continue;
 	//	putchar(ch);
 	//}
 
-	int i = 0;
-	for (i = 1; i < 10; i++)
-	{
-		printf("%d\n", i);
-	}
+	//char password[20] = { 0 };
+	//printf("Input password:>");
+	//scanf("%s", password);
 
-	/* Infinite loop: Do not change loop variable i inside for loop,
-	* could cause infinite loop
-	
-	int i = 0;
-	for (i = 0; i < 10; i++)
-	{
-		if (i = 5)
-			printf("haha\n");
-		printf("hehe\n");
-	}
-	*/
+	//// Method 1 
+	////getchar();
 
-	int x, y;
-	for (x = 0, y = 0; x < 2 && y < 5; ++x, y++) printf("hehe\n");
-
-	/* 
-	int x = 0;
-	int y = 0;
-	for (x = 0, y = 0; y = 0; x++, y++) y++;// y = 0是判断语句，即 y is false，循环执行0次
-	*/
-
-	int a = 1;
-	do 
-	{
-		printf("%d \n", a);
-		a++;
-	}
-	while (a < 10);
-
-	int i2 = 0;
-	int n = 0;
-	int sum = 0;
-	int ret2 = 1;
-	//scanf("%d", &n);
-	for (n = 1; n <= 10; n++)
-	{
-		/*
-		int ret2 = 1;
-		for (i2 = 1; i2 <= n; i2++)
-		{
-			ret2 *= i2;
-		}
-		sum += ret2;
-		*/
-		ret2 *= n;
-		sum += ret2;
-	}
-	printf("sum = %d\n", sum);
-
-	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-	int k = 7;
-	//int i3 = 0;
-	int sz = sizeof(arr) / sizeof(arr[0]); //数组元素个数=数组字节总长/单个元素字节长度
-	//for (i = 0; i < sz; i++)
+	//// Method 2
+	//int tmp = 0;
+	//while ((tmp = getchar()) != '\n')
 	//{
-	//	if (k == arr[i])
-	//	{
-	//		printf("Index is %d\n", i);
-	//		break;
-	//	}
+	//	;
 	//}
-	//if (i == sz) printf("Cannot find");
 
-	/*
-	int left = 0;
-	int right = sz - 1;
-	while (left<=right)
-	{
-		int mid = (left + right) / 2;
-		if (arr[mid] > k)
-		{
-			right = mid - 1;
-		}
-		else if (arr[mid] < k)
-		{
-			left = mid + 1;
-		}
-		else
-		{
-			printf("Index is:%d\n", mid);
-			break;
-		}
-	}
-	if (left > right) printf("Cannot find\n");
-	*/
+	//printf("Confirm(Y/N):>");
+	//int ch = getchar();
+	//if ('Y' == ch)
+	//	printf("Confirm successfully");
+	//else
+	//	printf("Cancceled");
 
-	char arr1[] = "Welcome to bit!!!!!!";
-	char arr2[] = "####################";
-	int left = 0;
-	//int right = sizeof(arr1)/sizeof(arr1[0])-2
-	int right = strlen(arr1)-1;
-	while (left <= right)
+	int i = 0;
+	int j = 0;
+	for (; i < 10; i++)
 	{
-		arr2[left] = arr1[left];
-		arr2[right] = arr1[right];
-		printf("%s\n", arr2);
-//		Sleep(1000);
-//		system("cls");
-		left++;
-		right--;
+		for (; j < 10; j++)
+		{
+			printf("j=%d\n", j);
+		}
+
 	}
 
-
-	int i3 = 0;
-	for (i = 0; i < 3; i++)
-	{
-		printf("Please input the password:>");
-		scanf("%s", password);
-		if (strcmp(password, "123456") == 0) //==不能用来比较两个字符串是否相等，应该使用一个库函数-strcmp
-		{
-			printf("Login successfully");
-			break;
-		}
-	}
-
-	if (i == 3) printf("Try run out");
+	
 	return 0;
 }
