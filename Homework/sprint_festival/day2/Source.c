@@ -1,37 +1,21 @@
 #define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
 
-void test()
+//Problem 2
+
+void arith_seq(int n)
 {
-	int i = 0;
-	i++;
-	printf("%d ", i);
+	int result = 2 * n + (n * (n - 1) * 3) / 2;
+	printf("%d\n", result);
 }
 
 int main()
 {
-	int i = 0;
-	for (i = 0; i < 5; i++);
+	int n = 0;
+	while (EOF != scanf("%d", &n))
 	{
-		test();
+		arith_seq(n);
 	}
 	return 0;
 }
 
-//int f(int n)
-//{
-//	static int i = 1;
-//	if (n >= 5)
-//		return n;
-//	n += 1;
-//	i++;
-//	return f(n);
-//}
-//
-//int main()
-//{
-//	int ret = f(1);
-//	printf("%d\n", ret);
-//	return 0;
-//}
