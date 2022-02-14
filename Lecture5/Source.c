@@ -113,9 +113,9 @@ int main()
 	//	putchar(ch);
 	//}
 
-	//char password[20] = { 0 };
-	//printf("Input password:>");
-	//scanf("%s", password);
+	char password[20] = { 0 };
+	printf("Input password:>");
+	scanf("%s", password);
 
 	//// Method 1 
 	////getchar();
@@ -127,23 +127,23 @@ int main()
 	//	;
 	//}
 
-	//printf("Confirm(Y/N):>");
-	//int ch = getchar();
-	//if ('Y' == ch)
-	//	printf("Confirm successfully");
-	//else
-	//	printf("Cancceled");
+	printf("Confirm(Y/N):>");
+	int ch = getchar();
+	if ('Y' == ch)
+		printf("Confirm successfully");
+	else
+		printf("Cancceled");
 
-	int i = 0;
-	int j = 0;
-	for (; i < 10; i++)
-	{
-		for (; j < 10; j++)
-		{
-			printf("j=%d\n", j);
-		}
+	//int i = 0;
+	//int j = 0;
+	//for (; i < 10; i++)
+	//{
+	//	for (; j < 10; j++)
+	//	{
+	//		printf("j=%d\n", j);
+	//	}
 
-	}
+	//}
 
 	
 	return 0;
