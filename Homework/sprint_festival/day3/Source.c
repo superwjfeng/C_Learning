@@ -31,3 +31,14 @@
 //	return 0;
 //}
 
+//Problem 2
+int minNumberInRotateArray(int* rotateArray, int rotateArrayLen)
+{
+
+}
+
+int main()
+{
+
+}
+
