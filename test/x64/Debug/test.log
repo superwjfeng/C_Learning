@@ -1,2 +1,2 @@
 ﻿  Source.c
-  test.vcxproj -> D:\C_Learning\test\x64\Debug\test.exe
+D:\C_Learning\test\Source.c(10,18): error C2065: 'i': undeclared identifier
