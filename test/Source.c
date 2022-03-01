@@ -1,12 +1,13 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
-	for (int i = 0; i < 10; i++)
+	char ch;
+	while ((ch = getchar()) != EOF)
 	{
-		;
+		putchar(ch);
 	}
-	printf("%d\n", i);
+	return 0;
 }
-
