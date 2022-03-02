@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 void test(void)
@@ -40,11 +40,4 @@ int check_sys()
 //	return 0;
 //}
 
-int main()
-{
-	char a = -1;
-	signed char b = -1;
-	unsigned char c = -1;
-	printf("a=%d, b=%d, c=%d", a, b, c);
-	return 0;
-}
+
