@@ -4,8 +4,8 @@
 
 int main()
 {
-	char a = -128;
-	printf("%d", a);
+	int arr[2] = { 0 };
+	arr[1] = 3;
 	return 0;
 }
 
