@@ -10,7 +10,7 @@
 //	int i = 0;
 //	for (i = 0; i < sz; i++)
 //	{
-//		printf("%d ", *(p + i));
+//		printf("%d ", *p++);
 //	}
 //	return 0;
 //}
@@ -18,21 +18,10 @@
 //Problem 10
 int main()
 {
-	int arr[5] = { 1,2,3,4,5 };
-	int i = 0;
-	printf("Original array: ");
-	for (i = 0; i < 5; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-	printf("\nCurrent array: ");
-	int* p = arr;
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	for (i = 0; i < sz; i++)
-	{
-		*(p + i);
-		printf("%d", *(p + i));
-	}
+	char arr[10000] = { 0 };
+	fgets(arr, 100, stdin);
+	printf("%s\n", arr);
+	
 	return 0;
 }
 
