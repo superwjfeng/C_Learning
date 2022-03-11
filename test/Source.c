@@ -4,8 +4,8 @@
 
 int main()
 {
-	int arr[] = { 12312,2,3,4,5,6,7,8,9,10 };
-	printf("%u", sizeof(int));
+	char arr[] = "I am a student.";
+	printf("%s\n", arr);
 	return 0;
 }
 

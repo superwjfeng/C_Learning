@@ -128,7 +128,7 @@
          1. 算术转换：类型转换从高到低顺序：long double, double, float, unsignedlong long, long long, unsigned long, long, unsigned int, int。算术转换时内存中二进制表示的值没有变，知识计算机解释值的方式变了
          2. 升级和降级 Promotion and demotion
             `double x=2; double y=x+3/2 `这里输出为3.000000
-         3. 整型提升：当传参时，char和short被转换为int，float转换为double：整型提升是按照变量的数据类型的符号位来提升的
+         3. 整型提升：当传参和计算时，char和short被转换为int，float转换为double：整型提升是按照变量的数据类型的符号位来提升的
             1. 有符号数
                1. 负数的整型提升：高位补充1
                2. 正数的整型提升：高位补充0
