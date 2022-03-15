@@ -219,6 +219,20 @@ void test3()
 	print_arr(arr, sz);
 }
 
+void swap(char* buf1, char* buf2, int width)
+{
+	int i = 0;
+	for (i = 0; i < width; i++)
+	{
+		char tmp = *buf1;
+		*buf1 = *buf2;
+		*buf2 = tmp;
+		buf1++;
+		buf2++;
+	}
+
+}
+
 void bubble_sort_modified(void* base, int num, int width, int (*cmp)(const void* e1, const void* e2))
 {
 	int i = 0;
@@ -227,16 +241,32 @@ void bubble_sort_modified(void* base, int num, int width, int (*cmp)(const void*
 		int j = 0;
 		for (j = 0; j < num - 1 - i; j++)
 		{
-			if (*cmp(, e2))
+			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width) > 0)
 			{
-
+				swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
 			}
 		}
 	}
 }
 
+void test4()
+{
+	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	bubble_sort_modified(arr, sz, sizeof(arr[0]), cmp_int);
+	print_arr(arr, sz);
+}
+
+void test5()
+{
+	struct Stu arr[3] = { {"Zhangsan", 20, 56.5},{"Lisi", 30, 88.0},{"Wangwu", 50 ,90.0} };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	bubble_sort_modified(arr, sz, sizeof(arr[0]), cmp_stu_by_name);
+	print_arr(arr, sz);
+}
+
 int main()
 {
-	test3();
+	test5();
 	return 0;
 }
