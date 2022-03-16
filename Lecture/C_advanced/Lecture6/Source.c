@@ -6,8 +6,8 @@
 //sizeof(数组名)，这里的数组名表示整个数组，计算的是整个数组的大小。sizeof返回数据类型在内存中所占字节数
 //&数组名，这里的数组名表示整个数组，取出的是整个数组的地址
 
-int main()
-{
+//int main()
+//{
 	////一维数组
 	//int a[] = { 1,2,3,4 };
 	//printf("%llu\n", sizeof(a)); //16，取出的是总字节数
@@ -85,5 +85,31 @@ int main()
 	//printf("%llu\n", sizeof(*(&a[0] + 1))); //16 对第二行的地址解引用访问到就是第二行
 	//printf("%llu\n", sizeof(*a)); //16 对第一行地址解引用就是第一行
 	//printf("%llu\n", sizeof(a[3])); //16 类型已经确定了，大小就确定了，sizeof不会访问内存空间
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a[5] = { 1,2,3,4,5 };
+//	int* ptr = (int*)(&a + 1);
+//	printf("%d, %d", *(a + 1), *(ptr - 1)); //2; 5
+//	return 0;
+//}
+
+struct Test
+{
+	int Num;
+	char* pcName;
+	short sDate;
+	char cha[2];
+	short sBa[4];
+} *p;
+
+int main()
+{
+	p = (struct Test*)0x100000;
+	printf("%p\n", p + 0x1);
+	printf("%p\n", (unsigned long)p + 0x1);
+	printf("%p\n", (unsigned int*)p + 0x1);
 	return 0;
 }
