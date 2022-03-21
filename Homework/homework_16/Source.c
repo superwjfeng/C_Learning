@@ -22,14 +22,35 @@
 //Problem 6
 int main()
 {
-	printf("1\n");
-	Sleep(1000);
-	printf("1 2\n");
-	Sleep(1000);
+	int arr[10][10] = { 0 };
 	int i = 0;
-	while (1)
+	for (i = 0; i < 10; i++)
 	{
-
+		int j = 0;
+		for (j = 0; j < 10; j++)
+		{
+			if (j == 0)
+			{
+				arr[i][j] = 1;
+			}
+			if (i == j)
+			{
+				arr[i][j] = 1;
+			}
+			if (i >= 2 && j >= 1)
+			{
+				arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+			}
+		}
+	}
+	for (i = 0; i < 10; i++)
+	{
+		int j = 0;
+		for (j = 0; j <= i; j++)
+		{
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
 	}
 	return 0;
 }
@@ -81,6 +102,16 @@ int main()
 //							1 == ((player[2] == 5) + (player[3] == 3)) &&
 //							1 == ((player[4] == 4) + (player[0] == 1)))
 //						{
+//							//if (player[0] * player[1] * player[2] * player[3] * player[4] == 120)
+//							//{
+//							//	int i = 0;
+//							//	printf("Order is:");
+//							//	for (i = 0; i < 5; i++)
+//							//	{
+//							//		printf("%d", player[i]);
+//							//	}
+//							//	printf("\n");
+//							//}
 //							if (if_repeat(player))
 //							{
 //								int i = 0;

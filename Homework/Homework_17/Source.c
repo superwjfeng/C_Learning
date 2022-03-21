@@ -27,17 +27,26 @@
 //	return 0;
 //}
 
+//////Problem1 modifeid
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	printf("%d", 1 << n);
+//	return 0;
+//}
+
 ////Problem 2
 //int main()
 //{
-//	int score;
+//	int score = 0;
 //	int i = 0;
 //	int max = 0;
 //	int min = 100;
 //	int sum = 0;
-//	for (i = 0; i < 7; i++)
+//	while (~scanf("%d", &score))
 //	{
-//		scanf("%d", &score);
+//		i++;
 //		if (score > max)
 //		{
 //			max = score;
@@ -47,8 +56,15 @@
 //			min = score;
 //		}
 //		sum += score;
+//		if (7 == i)
+//		{
+//			printf("%.2f\n", (sum - min - max) / 5.0);
+//			i = 0;
+//			sum = 0;
+//			max = 0;
+//			min = 100;
+//		}
 //	}
-//	printf("%.2f", (sum - min - max) / 5.0);
 //	return 0;
 //}
 
