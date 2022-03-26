@@ -108,16 +108,91 @@ enum Day
 
 enum Color
 {
-	RED,
-	GREEN,
+	RED = 5,
+	GREEN = 8,
 	BLUE
+};
+
+//int main()
+//{
+//	printf("%d\n", RED);
+//	printf("%d\n", GREEN);
+//	printf("%d\n", BLUE);
+//	enum Sex s = MALE;
+//	enum Sex s2 = FEMALE;	
+//	enum Day d = Fri;
+//	enum Color C = GREEN;
+//	return 0;
+//}
+
+//union Un
+//{
+//	char c;
+//	int i;
+//};
+
+//int main()
+//{
+//	union Un u;
+//	printf("%d\n", sizeof(u));
+//	printf("%p\n", &u);
+//	printf("%p\n", &(u.c));
+//	printf("%p\n", &(u.i));
+//
+//
+//	return 0;
+//}
+
+
+//// Check small endian or big endian
+//int main()
+//{
+//	int i = 1;
+//	if (1 == *(char*)&i)
+//	{
+//		printf("small endian\n");
+//	}
+//	else
+//	{
+//		printf("big endian\n");
+//	}
+//	return 0;
+//}
+
+////用union来判断大端小端
+//int check_sys()
+//{
+//	union Un
+//	{
+//		char c;
+//		int i;
+//	}u;
+//	u.i = 1;
+//	return u.c;
+//}
+//
+//int main()
+//{
+//	if (check_sys())
+//	{
+//		printf("small endian");
+//	}
+//	else
+//	{
+//		printf("big endian");
+//	}
+//	return 0;
+//}
+
+//联合体也要对齐
+union Un
+{
+	char arr[5];
+	int i;
 };
 
 int main()
 {
-	enum Sex s = MALE;
-	enum Sex s2 = FEMALE;	
-	enum Day d = Fri;
-	enum Color C = GREEN;
+	printf("%d\n", sizeof(union Un));
 	return 0;
 }
