@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 ////Problem 1
@@ -132,20 +132,34 @@
 //	return 0;
 //}
 
-//Problem 5
+////Problem 5
+//int main()
+//{
+//	char ch = 0;
+//	while (~scanf("%c", &ch)) 
+//	{
+//		if ((ch <= 'z') && (ch >= 'A'))
+//		{
+//			printf("YES\n");
+//		}
+//		else
+//		{
+//			printf("NO\n");
+//		}
+//		getchar();
+//	}
+//}
+
 int main()
 {
-	char ch = 0;
-	while (~scanf("%c", &ch)) 
+	int ch = getchar();
+	if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
 	{
-		if ((ch <= 'z') && (ch >= 'A'))
-		{
-			printf("YES\n");
-		}
-		else
-		{
-			printf("NO\n");
-		}
-		getchar();
+		printf("YES\n");
 	}
+	else
+	{
+		printf("NO\n");
+	}
+	return 0;
 }

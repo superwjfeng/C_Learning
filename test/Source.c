@@ -2,12 +2,20 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
+void swap(int* a, int* b)
 {
-	char arr[] = "I am a student.";
-	printf("%s\n", arr);
-	return 0;
+    int tmp = 0;
+    tmp = *b;
+    *b = *a;
+    *a = tmp;
 }
 
-//10110101 = -53
-//11001010 = -74
+int main()
+{
+    int a = 0;
+    int b = 0;
+    scanf("%d,%d", &a, &b);
+    swap(&a, &b);
+    printf("a=%d,b=%d", a, b);
+    return 0;
+}
