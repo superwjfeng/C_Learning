@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
+#include <string.h>
 
 
 //栈区：局部变量、函数的形式参数
@@ -172,14 +173,16 @@
 
 ////6.动态开辟内存忘记释放（内存泄漏）
 
-void test()
-{
-	int* p = malloc(100);
-	if (1)
-		return;  //也会内存泄露，若if成立则直接返回了，没机会走到下一步
-	free(p);
-	p = NULL;
-}
+//void test()
+//{
+//	int* p = malloc(100);
+//	if (1)
+//		return;  //也会内存泄露，若if成立则直接返回了，没机会走到下一步
+//	free(p);
+//	p = NULL;
+//}
+
+
 //void test()
 //{
 //	int* p = malloc(100);
@@ -195,3 +198,115 @@ void test()
 //	return 0;
 //}
 
+//void(GetMemory(char* p))
+//{
+//	p = (char*)malloc(100); //p是形参对实参不影响，且内存泄漏
+//}
+//
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(str);
+//	strcpy(str, "HelloWorld"); //对空指针解引用了
+//	printf(str);
+//}
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+
+//void(GetMemory(char** p))
+//{
+//	*p = (char*)malloc(100);
+//}
+//
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(&str);
+//	strcpy(str, "HelloWorld");
+//	printf(str);
+//}
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+
+////返回栈空间地址的问题
+//char* GetMomory(void)
+//{
+//	char p[] = "HelloWorld";
+//	return p;
+//}
+//
+//void Test(void)
+//{
+//	char* str = NULL;
+//	str = GetMomory(); //p出了GetMemory已经销毁了，形成野指针
+//	printf(str);
+//}
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+
+//void GetMemory(char** p, int num)
+//{
+//	*p = (char*)malloc(num);
+//}
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(&str, 100);
+//	strcpy(str, "hello");
+//	printf(str); //没free
+//}
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+//
+//void Test(void)
+//{
+//	char* str = (char*)malloc(100);
+//	strcpy(str, "hello");
+//	free(str);
+//	//str = NULL; 修改：指针置空
+//	if (str != NULL)
+//	{
+//		strcpy(str, "world"); //野指针
+//		printf(str);
+//	}
+//}
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+
+/*
+1. 
+int* f1(void)
+{
+	int x = 10;
+	return &x; //返回栈空间地址的问题
+}
+
+2.
+int* f2(void)
+{
+	int* ptr;
+	*ptr = 10; //ptr没有赋值，是随机值，解引用形成野指针
+	return ptr;   //注意：返回变量名是没有问题的，栈帧空间在销毁是会把变量名和值放到寄存器里，再给其他值
+}
+这两道题一定要注意区别！！
+*/
