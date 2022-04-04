@@ -161,7 +161,7 @@ int main()
 //	return 0;
 //}
 
-//int my_strcmp(char s1[], const char s2[])
+//int my_strcmp(const char* s1, const char* s2)
 //{
 //	assert(s1 && s2);
 //	while (*s1 == *s2)
@@ -173,7 +173,7 @@ int main()
 //		s1++;
 //		s2++;
 //	}
-//	//if (*s1 > *s2) //不想等
+//	//if (*s1 > *s2) //不相等
 //	//	return 1;
 //	//else
 //	//	return -1;
@@ -258,7 +258,7 @@ int main()
 //	return 0;
 //}
 
-//char* my_strstr(const char str1[], const char str2[])
+//char* my_strstr(const char* str1, const char* str2)
 //{
 //	assert(str1 && str2);
 //	const char* s1 = str1; //滚动匹配 加上const和str1保持一致，否则权限被放大了
