@@ -107,4 +107,13 @@ void SearchContact(const Contact* pc)
 	printf("%-20s %-5d %-8s %-12s %-30s\n", pc->data[pos].name, pc->data[pos].age, pc->data[pos].sex, pc->data[pos].tele, pc->data[pos].addr);
 }
 
-
+//void SortContactByName(Contact* pc)
+//{
+//
+//}
+//
+void ResetContact(Contact* pc)
+{
+	int i = 0;
+	for(i = 0;)
+}

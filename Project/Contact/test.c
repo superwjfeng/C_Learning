@@ -20,7 +20,7 @@ void menu()
 	printf("****1.add    2.del*******\n");
 	printf("****3.search 4.modify****\n");
 	printf("****5.sort   6.print*****\n");
-	printf("****0.exit***************\n");
+	printf("****7.reset  0.exit******\n");
 	printf("*************************\n");
 }
 
@@ -55,10 +55,13 @@ void test()
 			//ModifyContact(&con);
 			break;
 		case SORT:
+			//SortContactByName(&con);
 			break;
 		case PRINT:
 			PrintContact(&con);
 			break;
+		case RESET:
+			ResetContact(&con);
 		case EXIT:
 			printf("Exit.\n");
 			break;

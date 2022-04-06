@@ -15,7 +15,8 @@ enum Option
 	SEARCH,
 	MODIFY,
 	SORT,
-	PRINT
+	PRINT,
+	RESET
 };
 
 #define MAX 1000
@@ -55,6 +56,12 @@ void DelContact(Contact* pc);
 
 //查找联系人
 void SearchContact(const Contact* pc);
+
+//排序所有联系人
+void SortContactByName(Contact* pc);
+
+//清空所有联系人
+void ResetContact(Contact* pc);
 
 
 

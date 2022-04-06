@@ -70,15 +70,32 @@
 //	while (count--)
 //	{
 //		*(char*)dest = *(char*)src;
-//		dest = (char*)dest + 1;
-//		src = (char*)src + 1;
+//	//	dest = (char*)dest + 1;
+//	//	src = (char*)src + 1;
+//		//(char*)dest = (char*)dest + 1;
+//		//(char*)src = (char*)src + 1;
+//		((char*)dest)++;
+//		((char*)src)++;
 //	}
 //	
 //	return ret;
+//}
 //
+//int main()
+//{
+//	int arr1[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int arr2[5] = { 0 };
+//	my_memcpy(arr2, arr1, 20);
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d", arr2[i]);
+//	}
+//	return 0;
 //}
 
 ////void * memmove ( void * destination, const void * source, size_t num );
+////第一种写法，前->后/后->前/后->前
 //void* my_memmove(void* dest, const void* src, size_t count)
 //{
 //	assert(dest && src);
@@ -103,18 +120,33 @@
 //			*((char*)dest + count) = *((char*)src + count);//以count=20为例，则第一个之间相差19个字节
 //		}
 //	}
-//	//2
+//	return ret;
+//}
+
+////第二种写法，前->后/后->前/前->后
+//void* my_memmove(void* dest, const void* src, size_t count)
+//{
+//	assert(dest && src);
+//	void* ret = dest;
 //	if (dest > src && dest < ((char*)src + count))
-//	{
-//		//后->前
+//	{//后->前
+//		while (count--)
+//		{
+//			*(char*)dest = *(char*)src;
+//			dest = (char*)dest + 1;
+//			src = (char*)src + 1;
+//		}
 //	}
 //	else
-//	{
-//		//前->后
+//	{//前->后
+//		while (count--)
+//		{
+//			*((char*)dest + count) = *((char*)src + count);
+//		}
 //	}
 //	return ret;
 //}
-//
+
 //int main()
 //{
 //	int arr1[10] = { 1,2,3,4,5,6,7,8,9,10 };
@@ -131,8 +163,7 @@
 //	for (i = 0; i < sz; i++)
 //	{
 //		printf("%d ", arr1[i]);
-//	}
-//	
+//	}	
 //	return 0;
 //}
 
@@ -185,12 +216,12 @@ struct Book
 	char id[12];
 } s = {"Harry Potter", 55.5f, "XXXXXX1"};
 
-int main()
-{
-	struct Node n;
-	struct Book s2 = { "Harry Potter 2",60.0f, "XXXXXX2"};
-	return 0;
-}
+//int main()
+//{
+//	struct Node n;
+//	struct Book s2 = { "Harry Potter 2",60.0f, "XXXXXX2"};
+//	return 0;
+//}
 
 ////或者这么写
 //typedef struct Node
