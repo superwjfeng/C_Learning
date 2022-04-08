@@ -1,6 +1,6 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(693,5): error MSB6003: The specified task executable "CL.exe" could not be run. System.IO.IOException: The process cannot access the file 'D:\C_LEARNING\PROJECT\CONTACT\X64\DEBUG\CONTACT.OBJ' because it is being used by another process.
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(693,5): error MSB6003:    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(693,5): error MSB6003:    at System.IO.FileInfo.Delete()
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(693,5): error MSB6003:    at Microsoft.Build.CPPTasks.TrackedVCToolTask.DeleteFiles(ITaskItem[] filesToDelete)
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(693,5): error MSB6003:    at Microsoft.Build.CPPTasks.CL.ComputeOutOfDateSources()
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(693,5): error MSB6003:    at Microsoft.Build.Utilities.ToolTask.Execute()
+﻿  contact.c
+D:\C_Learning\Project\Contact\contact.c(163,31): warning C4311: 'type cast': pointer truncation from 'char [30]' to 'int'
+  test.c
+D:\C_Learning\Project\Contact\test.c(66,15): warning C4013: 'SaveContact' undefined; assuming extern returning int
+  Generating Code...
+  Contact.vcxproj -> D:\C_Learning\Project\Contact\x64\Debug\Contact.exe

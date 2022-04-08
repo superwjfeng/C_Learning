@@ -19,7 +19,7 @@ void AddContact(Contact* pc)
 	printf("Please input name:>");
 	scanf("%s", pc->data[pc->sz].name);
 	printf("Please input age:>");
-	scanf("%s", &(pc->data[pc->sz].age));
+	scanf("%d", &(pc->data[pc->sz].age));
 	printf("Please input sex:>");
 	scanf("%s", pc->data[pc->sz].sex);
 	printf("Please input telefone number:>");
@@ -46,7 +46,7 @@ void PrintContact(const Contact* pc)
 
 
 //找到返回下标，找不到返回-1
-int FindByName(const Contact* pc, char name[])
+int FindByName(const Contact* pc, char* name)
 {
 	assert(pc);
 	int i = 0;
@@ -107,13 +107,96 @@ void SearchContact(const Contact* pc)
 	printf("%-20s %-5d %-8s %-12s %-30s\n", pc->data[pos].name, pc->data[pos].age, pc->data[pos].sex, pc->data[pos].tele, pc->data[pos].addr);
 }
 
-//void SortContactByName(Contact* pc)
-//{
-//
-//}
-//
-void ResetContact(Contact* pc)
+void SortContactByName(Contact* pc)
 {
 	int i = 0;
-	for(i = 0;)
+	for (i = 0; i < (pc->sz) - 1; i++)
+	{
+		int j = 0;
+		for (j = 0; j < (pc->sz) - i - 1; j++)
+		{
+			if (strcmp(pc->data[j].name, pc->data[j + 1].name) > 0)
+			{
+				char tmp[NAME_MAX] = { 0 };
+				strcpy(tmp, pc->data[j].name);
+				strcpy(pc->data[j].name, pc->data[j + 1].name);
+				strcpy(pc->data[j + 1].name, tmp);
+			}
+		}
+	}
+	printf("Sort successfully!\n");
+}
+
+void ModifyInfo()
+{
+	printf("*************************\n");
+	printf("****1.Name     2.Sex*****\n");
+	printf("****3.Age      4.Tele****\n");
+	printf("****5.Address************\n");
+	printf("*************************\n");
+}
+
+void ModifyContact(Contact* pc)
+{
+	char name[NAME_MAX] = { 0 };
+	char modified_term[10] = { 0 };
+	printf("Please input the name of contact that you want to modify:>\n");
+	scanf("%s", name);
+	int i = FindByName(pc, name);
+
+	printf("Please input the label number of information you want to modify:>\n");
+	ModifyInfo();
+	int input = 0;
+	scanf("%d", &input);
+	printf("Please input the modified value:>\n");
+	char value[ADDR_MAX] = {0};//ADDR_MAX是最长的
+	scanf("%s", value);
+	switch (input)
+	{
+	case NAME:
+		strcpy(pc->data[i].name, value);
+		break;
+	case SEX:
+		strcpy(pc->data[i].sex, value);
+		break;
+	case AGE:
+		pc->data[i].age = (int)value; //??
+		break;
+	case TELE:
+		strcpy(pc->data[i].tele, value);
+		break;
+	case ADDR:
+		strcpy(pc->data[i].addr, value);
+		break;
+	}
+	printf("Modify successfully!\n");
+}
+
+void ResetContact(Contact* pc)
+{
+	InitContact(pc);
+	printf("Reset successfully!\n");
+}
+
+
+void SaveContact(const Contact* pc)
+{
+	//打开文件
+	FILE* pf = fopen("contact.dat", "wb");
+	if (pf == NULL)
+	{
+		perror("SaveContact::fopen");
+		return;
+	}
+	
+	//写文件
+	int i = 0;
+	for (i = 0; i < pc->sz; i++)
+	{
+		fwrite(pc->data + i, sizeof(PeoInfo), 1, pf);
+	}
+
+	//关闭文件
+	fclose(pf);
+	pf = NULL;
 }

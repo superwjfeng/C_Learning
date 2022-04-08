@@ -19,6 +19,15 @@ enum Option
 	RESET
 };
 
+enum ModifiedTerm
+{
+	NAME=1,
+	SEX,
+	AGE,
+	TELE,
+	ADDR
+};
+
 #define MAX 1000
 #define NAME_MAX 20
 #define SEX_MAX 5
@@ -59,6 +68,9 @@ void SearchContact(const Contact* pc);
 
 //排序所有联系人
 void SortContactByName(Contact* pc);
+
+//修改联系人信息
+void ModifyContact(Contact* pc);
 
 //清空所有联系人
 void ResetContact(Contact* pc);

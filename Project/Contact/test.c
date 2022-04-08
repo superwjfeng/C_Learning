@@ -52,10 +52,10 @@ void test()
 			SearchContact(&con);
 			break;
 		case MODIFY:
-			//ModifyContact(&con);
+			ModifyContact(&con);
 			break;
 		case SORT:
-			//SortContactByName(&con);
+			SortContactByName(&con);
 			break;
 		case PRINT:
 			PrintContact(&con);
@@ -63,6 +63,7 @@ void test()
 		case RESET:
 			ResetContact(&con);
 		case EXIT:
+			SaveContact(&con);
 			printf("Exit.\n");
 			break;
 		default:
