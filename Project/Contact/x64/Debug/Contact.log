@@ -1,5 +1,5 @@
 ﻿  contact.c
-D:\C_Learning\Project\Contact\contact.c(163,31): warning C4311: 'type cast': pointer truncation from 'char [30]' to 'int'
+D:\C_Learning\Project\Contact\contact.c(200,31): warning C4311: 'type cast': pointer truncation from 'char [30]' to 'int'
   test.c
 D:\C_Learning\Project\Contact\test.c(66,15): warning C4013: 'SaveContact' undefined; assuming extern returning int
   Generating Code...

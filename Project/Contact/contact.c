@@ -1,21 +1,58 @@
 ﻿//接口的实现
 #include "contact.h"
 
+////静态的版本
+//void InitContact(Contact* pc)
+//{
+//	assert(pc);
+//	pc->sz = 0;
+//	memset(pc->data, 0, sizeof(pc->data)); //sizeof的是结构体地址，指向一个数组
+//}
+
+//动态的版本
 void InitContact(Contact* pc)
 {
 	assert(pc);
 	pc->sz = 0;
-	memset(pc->data, 0, sizeof(pc->data)); //sizeof的是结构体地址，指向一个数组
+	pc->capacity = DEFAULT_SZ;
+	pc->data = (PeoInfo*)malloc(pc->capacity * sizeof(PeoInfo));
+	if (pc->data == NULL)
+	{
+		perror("InitContact::malloc");
+		return;
+	}
+	memset(pc->data, 0, pc->capacity * sizeof(PeoInfo));
+}
+
+//动态增容
+void CheckCapacity(Contact* pc)
+{
+	if (pc->sz == pc->capacity)
+	{
+		PeoInfo* tmp = (PeoInfo*)realloc(pc->data, (pc->capacity + 2) * sizeof(PeoInfo));
+		if (tmp != NULL)
+		{
+			pc->data = tmp;
+		}
+		pc->capacity += 2;
+	}
 }
 
 void AddContact(Contact* pc)
 {
+	////静态版本
+	//assert(pc);
+	//if (pc->sz == MAX)
+	//{
+	//	printf("Contact list is full, cannot add\n");
+	//	return;
+	//}
+
+	//动态版本
 	assert(pc);
-	if (pc->sz == MAX)
-	{
-		printf("Contact list is full, cannot add\n");
-		return;
-	}
+
+	CheckCapacity(pc);
+
 	printf("Please input name:>");
 	scanf("%s", pc->data[pc->sz].name);
 	printf("Please input age:>");
@@ -178,6 +215,13 @@ void ResetContact(Contact* pc)
 	printf("Reset successfully!\n");
 }
 
+void DestroyContact(Contact* pc)
+{
+	free(pc->data);
+	pc->data = NULL;
+	pc->capacity = 0;
+	pc->sz = 0;
+}
 
 void SaveContact(const Contact* pc)
 {

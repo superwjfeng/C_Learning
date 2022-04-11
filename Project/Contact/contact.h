@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
+#include <stdlib.h>
 //接口声明
 
 //类型的声明
@@ -33,6 +34,7 @@ enum ModifiedTerm
 #define SEX_MAX 5
 #define TELE_MAX 12
 #define ADDR_MAX 30
+#define DEFAULT_SZ 3
 
 typedef struct PeoInfo
 {
@@ -43,16 +45,28 @@ typedef struct PeoInfo
 	char addr[ADDR_MAX];
 } PeoInfo;
 
+////静态的版本
+//typedef struct Contact
+//{
+//	PeoInfo data[1000];
+//	int sz;
+//}Contact;
+
+//动态的版本
 typedef struct Contact
 {
-	PeoInfo data[1000];
+	PeoInfo* data;
 	int sz;
+	int capacity; //记录当前通讯录的最大容量
 }Contact;
 
 //函数的声明
 
 //初始化通讯录
 void InitContact(Contact* pc);
+
+//销毁通讯录
+void DestroyContact(Contact* pc);
 
 //增加联系人的信息
 void AddContact(Contact* pc);

@@ -63,6 +63,7 @@ void test()
 		case RESET:
 			ResetContact(&con);
 		case EXIT:
+			DestroyContact(&con);
 			SaveContact(&con);
 			printf("Exit.\n");
 			break;
