@@ -66,6 +66,8 @@
 //	return 0;
 //}
 
+
+//下面的方法也可以做到扩容或减容，但和柔性数组的差异在于num和arr不一定是存放在一块连续空间上的
 struct S4
 {
 	int num;
@@ -77,8 +79,10 @@ int main()
 	struct S4* ps = (struct S4*)malloc(sizeof(struct S4));
 	if (ps == NULL)
 	{
+		perror("malloc\n");
 		return 1;
 	}
+
 	ps->arr = (int*)malloc(40);
 	if (ps->arr == NULL)
 	{
@@ -86,5 +90,12 @@ int main()
 		ps = NULL;
 		return 1;
 	}
+	//使用
+	// 
+	//释放
+	free(ps->arr);
+	ps->arr = NULL;
+	free(ps);
+	ps = NULL;
 	return 0;
 }

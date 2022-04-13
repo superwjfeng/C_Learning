@@ -6,13 +6,11 @@
 #include <stdlib.h>
 #include <assert.h>
 
+int x;
+
 int main()
 {
-	char ch[10] = { 0 };
-	//gets(ch);
-	//puts(ch);
-	fgets(ch, 10, stdin);
-	puts(ch);
+	int y;
 	return 0;
 }
 

@@ -10,6 +10,7 @@
 //}
 
 //动态的版本
+
 void InitContact(Contact* pc)
 {
 	assert(pc);

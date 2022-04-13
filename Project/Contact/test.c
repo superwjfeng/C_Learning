@@ -12,8 +12,6 @@
 一个人的信息包括：名字、性别、年龄、电话、住址
 */
 
-
-
 void menu()
 {
 	printf("*************************\n");
@@ -64,7 +62,7 @@ void test()
 			ResetContact(&con);
 		case EXIT:
 			DestroyContact(&con);
-			SaveContact(&con);
+			//SaveContact(&con);
 			printf("Exit.\n");
 			break;
 		default:
