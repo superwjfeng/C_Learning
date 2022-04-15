@@ -112,11 +112,50 @@
 //	return 0;
 //}
 
-#define MALLOC(num, type) (type*)malloc(num*sizeof(type))
+//#define MALLOC(num, type) (type*)malloc(num*sizeof(type))
+//
+//int main()
+//{
+//	int* p = (int*)malloc(10 * sizeof(int));
+//	int* p2 = MALLOC(10, int);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		arr[i] = i;
+//#if 1
+//		printf("%d ", arr[i]);
+//#endif
+//	}
+//}
+
+//#define NUM 8
+//
+//int main()
+//{
+//#if NUM == 1
+//	printf("hehe\n");
+//#elif NUM == 2
+//	printf("haha\n");
+//#else
+//	printf("heihei\n");
+//#endif
+//
+//	return 0;
+//}
+
+#define MAX 0
 
 int main()
 {
-	int* p = (int*)malloc(10 * sizeof(int));
-	int* p2 = MALLOC(10, int);
-	return 0;
-}
+#if defined(MAX) //看MAX有没有定义
+	//ifdef(MAX) //这两种写法是一样的
+	//if !defined(MAX) & ifndef 如果没定义
+	printf("hehe\n");
+#endif
+} 

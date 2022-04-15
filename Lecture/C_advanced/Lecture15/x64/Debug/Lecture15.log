@@ -1,5 +1,4 @@
 ﻿  Source.c
-D:\C_Learning\Lecture\C_advanced\Lecture15\Source.c(119,23): warning C4013: 'malloc' undefined; assuming extern returning int
-D:\C_Learning\Lecture\C_advanced\Lecture15\Source.c(119,41): warning C4312: 'type cast': conversion from 'int' to 'int *' of greater size
-D:\C_Learning\Lecture\C_advanced\Lecture15\Source.c(120,27): warning C4312: 'type cast': conversion from 'int' to 'int *' of greater size
+D:\C_Learning\Lecture\C_advanced\Lecture15\Source.c(152,1): warning C4005: 'MAX': macro redefinition
+D:\C_Learning\Lecture\C_advanced\Lecture15\Source.c(19): message : see previous definition of 'MAX'
   Lecture15.vcxproj -> D:\C_Learning\Lecture\C_advanced\Lecture15\x64\Debug\Lecture15.exe
