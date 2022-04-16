@@ -30,34 +30,16 @@
 //    return 0;
 //}
 
+#include <stdio.h>
+#include <string.h>
 int main()
 {
-	int n = 0;
-	scanf("%d", &n);
-	int f0 = 0;
-	int f1 = 1;
-	int f2;
-	while (1)
-	{
-		f2 = f0 + f1;
-		if (n <= f2)
-		{
-		//	printf("%d\n", ((n - f1) - (f2 - n)) ? (n - f1) : (f2 - n));
-			if ((f2 - n) < (n - f1))
-			{
-				printf("%d", f2 - n);
-			}
-			else
-			{
-				printf("%d", n - f1);
-			}
-			break;
-		}
-		else
-		{
-			f0 = f1;
-			f1 = f2;
-		}
-	}
-	return 0;
+    char ch;
+    scanf("%c", &ch);
+    if (isalpha(ch))
+        printf("%c is an alphabet.", ch);
+    else
+        printf("%c is not an alphabet.", ch);
+
+    return 0;
 }
