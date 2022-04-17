@@ -30,16 +30,17 @@
 //    return 0;
 //}
 
+#include <math.h>
+
 #include <stdio.h>
-#include <string.h>
+
 int main()
 {
-    char ch;
-    scanf("%c", &ch);
-    if (isalpha(ch))
-        printf("%c is an alphabet.", ch);
+    int math, chi, eng;
+    scanf("%d %d %d", &math, &chi, &eng);
+    if ((math + chi + eng) / 3 > 60)
+        printf("YES\n");
     else
-        printf("%c is not an alphabet.", ch);
-
+        printf("NO\n");
     return 0;
 }

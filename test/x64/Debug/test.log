@@ -1,3 +1,2 @@
 ﻿  Source.c
-D:\C_Learning\test\Source.c(39,16): warning C4013: 'isalpha' undefined; assuming extern returning int
   test.vcxproj -> D:\C_Learning\test\x64\Debug\test.exe
