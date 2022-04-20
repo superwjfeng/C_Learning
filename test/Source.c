@@ -30,17 +30,97 @@
 //    return 0;
 //}
 
-#include <math.h>
+#include <stdio.h>
+
+/*
+//单个树冠
+void single_tree(void)
+{
+    int i = 0;
+    for (i=0; i<3; i++)
+    {
+        int j = 0;
+        for (j=0; j<2-i; j++)
+            printf(" ");
+        for (j=0; j<=i; j++)
+            printf("* ");
+        printf("\n");
+    }
+}
+
+//树冠前的空白
+void single_blank(void)
+{
+    int i = 0;
+    for (i=0; i<3; i++)
+    {
+        int j = 0;
+        for (j=0; j<3; j++)
+            printf(" ");
+    }
+}
+*/
+
+
+
+//#include <stdio.h>
+//
+//void bubble_sort(int* arr_ordered, int n)
+//{
+//    int i = 0;
+//    for (i=0; i<n; i++)
+//    {
+//        if(arr_ordered[i] > arr_ordered[i+1])
+//        {
+//            int tmp = 0;
+//            tmp = arr_ordered[i+1];
+//            arr_ordered[i+1] = arr_ordered[i];
+//            arr_ordered[i] = tmp;
+//        }
+//    }
+//}
+//
+//int main()
+//{
+//    int n, i;
+//    scanf("%d", &n);
+//    int arr[50] = {0};
+//    int arr_ordered[50] = {0};
+//    scanf("%d", &n);
+//    for (i=0; i<n; i++)
+//    {
+//        scanf("%d", &arr[i]);
+//        arr_ordered[0] = arr[i];
+//        bubble_sort(arr_ordered, n);
+//    }
+//    for (i=0; i<5; i++)
+//        printf("%d ", arr_ordered[n-i-1]);
+//    return 0;
+//}
 
 #include <stdio.h>
+#include <math.h>
+
+void find(int l, int r)
+{
+    for (int i = l; i <= r; i++)
+    {
+        int sum = 0;
+        int curr = i;
+        while (curr)
+        {
+            sum += (int)pow(curr % 10, 4);
+            curr /= 10;
+        }
+        if (sum == curr)
+            printf("%d ", curr);
+    }
+}
 
 int main()
 {
-    int math, chi, eng;
-    scanf("%d %d %d", &math, &chi, &eng);
-    if ((math + chi + eng) / 3 > 60)
-        printf("YES\n");
-    else
-        printf("NO\n");
+    int l, r;
+    scanf("%d %d", &l, &r);
+    find(l, r);
     return 0;
 }
