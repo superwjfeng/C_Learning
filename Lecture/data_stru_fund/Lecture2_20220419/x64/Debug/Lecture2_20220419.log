@@ -1,7 +1,5 @@
 ﻿  SeqList.c
-D:\C_Learning\Lecture\data_stru_fund\Lecture2_20220419\SeqList.c(14,41): warning C4013: 'realloc' undefined; assuming extern returning int
-D:\C_Learning\Lecture\data_stru_fund\Lecture2_20220419\SeqList.c(14,82): warning C4312: 'type cast': conversion from 'int' to 'SLDataType *' of greater size
-D:\C_Learning\Lecture\data_stru_fund\Lecture2_20220419\SeqList.c(18,8): warning C4013: 'exit' undefined; assuming extern returning int
   test.c
   Generating Code...
+D:\C_Learning\Lecture\data_stru_fund\Lecture2_20220419\SeqList.c(156): warning C4716: 'SLModify': must return a value
   Lecture2_20220419.vcxproj -> D:\C_Learning\Lecture\data_stru_fund\Lecture2_20220419\x64\Debug\Lecture2_20220419.exe

@@ -1,10 +1,4 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <string.h>
-#include <limits.h>
-#include <errno.h>
-#include <stdlib.h>
-#include <assert.h>
 
 //void FiboGene(void)
 //{
@@ -29,8 +23,6 @@
 //    FiboGene();
 //    return 0;
 //}
-
-#include <stdio.h>
 
 /*
 //单个树冠
@@ -98,29 +90,150 @@ void single_blank(void)
 //    return 0;
 //}
 
-#include <stdio.h>
-#include <math.h>
+//#include <stdio.h>
+//#include <math.h>
+//
+//void find(int l, int r)
+//{
+//    for (int i = l; i <= r; i++)
+//    {
+//        int sum = 0;
+//        int curr = i;
+//        while (curr)
+//        {
+//            sum += (int)pow(curr % 10, 4);
+//            curr /= 10;
+//        }
+//        if (sum == curr)
+//            printf("%d ", curr);
+//    }
+//}
+//
+//int main()
+//{
+//    int l, r;
+//    scanf("%d %d", &l, &r);
+//    find(l, r);
+//    return 0;
+//}
 
-void find(int l, int r)
+////1.常规方法，时间复杂度为O(n*k)，最坏情况下为O(n^2)，空间复杂度为O(1)
+// 向左轮转
+//#include <stdio.h>
+//
+//void reverse(int* nums, int numsSize)
+//{
+//    for (int i = 0; i < numsSize - 1; i++)
+//    {
+//        nums[i] = nums[i + 1];
+//    }
+//}
+//
+//void rotate(int* nums, int numsSize, int k)
+//{
+//    for (int i = 0; i < k; i++)
+//    {
+//        int tmp = nums[0];
+//        reverse(nums, numsSize);
+//        nums[numsSize - 1] = tmp;
+//    }
+//}
+//
+//int main()
+//{
+//    int nums[7] = { 1, 2, 3, 4, 5, 6, 7 };
+//    int numsSize = sizeof(nums) / sizeof(nums[0]);
+//    int k = 3;
+//    rotate(nums, numsSize, k);
+//    return 0;
+//}
+
+////向右轮转
+//#include <stdio.h>
+//
+//void reverse(int* nums, int numsSize)
+//{
+//    for (int i = numsSize - 2; i >= 0; i--) //注意这里拷贝的顺序，如果写反了会被覆盖
+//    {
+//        nums[i + 1] = nums[i];
+//    }
+//}
+//
+//void rotate(int* nums, int numsSize, int k)
+//{
+//    k %= numsSize;
+//    for (int i = 0; i < k; i++)
+//    {
+//        int tmp = nums[numsSize-1];
+//        reverse(nums, numsSize);
+//        nums[0] = tmp;
+//    }
+//}
+//
+//int main()
+//{
+//    int nums[7] = { 1, 2, 3, 4, 5, 6, 7 };
+//    int numsSize = sizeof(nums) / sizeof(nums[0]);
+//    int k = 10;
+//    rotate(nums, numsSize, k);
+//    return 0;
+//}
+
+////2.常规方法，拿空间换时间，时间复杂度为O(n)，空间复杂度为O(n)
+#include <stdio.h>
+
+void rotate(int* nums, int numsSize, int k)
 {
-    for (int i = l; i <= r; i++)
-    {
-        int sum = 0;
-        int curr = i;
-        while (curr)
-        {
-            sum += (int)pow(curr % 10, 4);
-            curr /= 10;
-        }
-        if (sum == curr)
-            printf("%d ", curr);
-    }
+    k %= numsSize;
+    int split[100000] = { 0 };
+    int i = 0;
+    for (i = 0; i < k; i++)
+        split[i] = nums[numsSize - k + i];
+    for (i = 0; i < numsSize - k; i++)
+        split[i + k] = nums[i];
+    for (i = 0; i < numsSize; i++)
+        nums[i] = split[i];
 }
 
 int main()
 {
-    int l, r;
-    scanf("%d %d", &l, &r);
-    find(l, r);
+    int nums[4] = { -1, -100, 3, 99 };
+    int numsSize = sizeof(nums) / sizeof(nums[0]);
+    int k = 2;
+    rotate(nums, numsSize, k);
+
     return 0;
 }
+
+////3.好方法，先n部分逆序，再n-k部分逆序，最后整体逆序，时间复杂度为O(n)，空间复杂度为O(1)
+//void swap(int* nums, int L, int R)
+//{
+//    int tmp = 0;
+//    while (L < R)
+//    {
+//        tmp = nums[L];
+//        nums[L] = nums[R];
+//        nums[R] = tmp;
+//        L++;
+//        R--;
+//        tmp = 0;
+//    }
+//}
+//
+//void rotate(int* nums, int numsSize, int k)
+//{
+//    k %= numsSize;
+//    swap(nums, 0, numsSize - k - 1);
+//    swap(nums, numsSize - k, numsSize - 1);
+//    swap(nums, 0, numsSize - 1);
+//}
+//
+//int main()
+//{
+//    int nums[7] = { 1, 2, 3, 4, 5, 6, 7 };
+//    int numsSize = sizeof(nums) / sizeof(nums[0]);
+//    int k = 10;
+//    rotate(nums, numsSize, k);
+//    return 0;
+//}
+

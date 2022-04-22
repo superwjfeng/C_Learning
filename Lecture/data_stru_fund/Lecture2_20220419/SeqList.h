@@ -1,4 +1,9 @@
-﻿#include <stdio.h>
+﻿#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+
 
 #pragma once
 
@@ -16,11 +21,21 @@ typedef struct SeqList
 
 void SLInit(SL* ps);
 
+void SLDestroy(SL* ps);
+
 void SLPrint(SL* ps);
 //头插/头删
-void SLPushBack(SL* ps, SLDataType x);
-void SLPopBack(SL* ps);
-void SLPushFront(SL* ps, SLDataType x);
-void SLPopFront(SL* ps);
+void SLPushBack(SL* ps, SLDataType x); //尾插
+void SLPopBack(SL* ps); //头删
+void SLPushFront(SL* ps, SLDataType x); //头插
+void SLPopFront(SL* ps); //头删
 
-void SLCheckCapacity()
+void SLCheckCapacity(SL* ps);
+
+void SLInsert(SL* ps, int pos, SLDataType X); //在pos位置插入数据
+
+void SLErase(SL* ps, int pos); //删除pos位置的数据
+
+int SLFind(SL* ps, SLDataType x);
+
+void SLModify(SL* ps, int pos, SLDataType x);

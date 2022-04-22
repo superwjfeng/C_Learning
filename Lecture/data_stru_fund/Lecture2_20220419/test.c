@@ -30,16 +30,154 @@
 //	return 0;
 //}
 
-
-
 void TestSeqList1()
 {
 	SL sl;
 	SLInit(&sl);
 }
 
+void TestSeqList3()
+{
+	SL sl;
+	SLInit(&sl);
+	SLPushFront(&sl, 1);
+	SLPushFront(&sl, 2);
+	SLPushFront(&sl, 3);
+	SLPushFront(&sl, 4);
+	SLPushFront(&sl, 5);
+	SLPrint(&sl);
+
+	SLPopBack(&sl);
+	SLPopBack(&sl);
+	SLPopBack(&sl);
+	SLPopBack(&sl);
+	SLPopBack(&sl);
+	SLPopBack(&sl);
+	SLPopBack(&sl);
+	SLPrint(&sl);
+
+	SLDestroy(&sl); //越界的时候编译器是不会报错的，只有到free的时候会报错
+}
+
+void TestSeqList4()
+{
+	SL sl;
+	SLInit(&sl);
+	SLPushFront(&sl, 1);
+	SLPushFront(&sl, 2);
+	SLPushFront(&sl, 3);
+	SLPushFront(&sl, 4);
+	SLPushFront(&sl, 5);
+	SLPrint(&sl);
+
+	SLPopFront(&sl);
+	SLPrint(&sl);
+}
+
+void TestSeqList5()
+{
+	SL sl;
+	SLInit(&sl);
+	SLPushFront(&sl, 1);
+	SLPushFront(&sl, 2);
+	SLPushFront(&sl, 3);
+	SLPushFront(&sl, 4);
+	SLPushFront(&sl, 5);
+	SLPrint(&sl);
+
+	SLInsert(&sl, 3, 40);
+	SLPrint(&sl);
+}
+
+void TestSeqList7()
+{
+	SL sl;
+	SLInit(&sl);
+	SLPushFront(&sl, 1);
+	SLPushFront(&sl, 2);
+	SLPushFront(&sl, 3);
+	SLPushFront(&sl, 4);
+	SLPushFront(&sl, 5);
+	SLPrint(&sl);
+	
+	int x = 0;
+	printf("Please input the number you want to delete:>");
+	scanf("%d", &x);
+	int pos = SLFind(&sl, x);
+	while (pos != -1)
+	{
+		SLErase(&sl, pos);
+		pos = SLFind(&sl, x);
+	}
+	SLPrint(&sl);
+
+	int y, z;
+	printf("Please input the number you want to delete and the renewed number:>");
+	scanf("%d%d", &y, &z);
+	int pos = SLFind(&sl, y);
+	if (pos != -1)
+	{
+		SLModify(&sl, pos, z);
+	}
+	else
+	{
+		printf("cannot find: %d\n", y);
+	}
+	SLPrint(&sl);
+}
+
+void menu()
+{
+	printf("****************************************************\n");
+	printf("*********1. Push back   2. Push front***************\n");
+	printf("*********5. Find        6. Delete*******************\n");
+	printf("*********7. Modify      8. Print********************\n");
+	printf("********-1. Exit************************************\n");
+}
+
 int main()
 {
-	TestSeqList1();
+	int option = -1; 
+	do
+	{
+		menu();
+		if (~scanf("%d", &option))
+		{
+			printf("Wrong input\n");
+			continue;
+		}
+		int val, pos;
+		switch (option)
+		{
+		case 1:
+			printf("Please continuously input the datas you want to input, use 0 as the end of input:>");
+			scanf("%d", &val);
+			while (val)
+			{
+				SLPushBack(&sl, val);
+				scanf("%d", &val);
+			}
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		default:
+			break;
+
+		}
+
+	} while (option != -1);
+	TestSeqList7();
 	return 0;
 }
