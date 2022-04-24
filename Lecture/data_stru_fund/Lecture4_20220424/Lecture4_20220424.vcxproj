@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{82597c53-08f2-4381-a7eb-dfd28f434e0e}</ProjectGuid>
-    <RootNamespace>Lecture220220419</RootNamespace>
+    <ProjectGuid>{34ea1f01-a245-4dc2-9e33-69f373cda2c4}</ProjectGuid>
+    <RootNamespace>Lecture420220424</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Lecture2and3_20220419</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,11 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SeqList.c" />
+    <ClCompile Include="SList.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SeqList.h" />
+    <ClInclude Include="SList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

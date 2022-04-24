@@ -1,5 +1,5 @@
 ﻿  SeqList.c
   test.c
+D:\C_Learning\Lecture\data_stru_fund\Lecture2_20220419\test.c(117,6): error C2374: 'pos': redefinition; multiple initialization
+D:\C_Learning\Lecture\data_stru_fund\Lecture2_20220419\test.c(106): message : see declaration of 'pos'
   Generating Code...
-D:\C_Learning\Lecture\data_stru_fund\Lecture2_20220419\SeqList.c(156): warning C4716: 'SLModify': must return a value
-  Lecture2_20220419.vcxproj -> D:\C_Learning\Lecture\data_stru_fund\Lecture2_20220419\x64\Debug\Lecture2_20220419.exe

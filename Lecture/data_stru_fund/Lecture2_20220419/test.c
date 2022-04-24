@@ -137,6 +137,8 @@ void menu()
 
 int main()
 {
+	//	TestSeqList7();
+	SL sl;
 	int option = -1; 
 	do
 	{
@@ -146,6 +148,7 @@ int main()
 			printf("Wrong input\n");
 			continue;
 		}
+		int y, z;
 		int val, pos;
 		switch (option)
 		{
@@ -169,15 +172,26 @@ int main()
 		case 6:
 			break;
 		case 7:
+
+			printf("Please input the data series you want to modify and the modified values:>");
+			scanf("%d %d", &y, &z);
+			pos = SLFind(&sl, y);
+			if (pos != -1)
+				SLModify(&sl, pos, z);
+			else
+				printf("Cannot find:%d\n", y);
 			break;
 		case 8:
+			SLPrint(&sl);
 			break;
 		default:
+			printf("Wrong input\n");
 			break;
 
 		}
 
 	} while (option != -1);
-	TestSeqList7();
+	SLDestroy(&sl);
+
 	return 0;
 }

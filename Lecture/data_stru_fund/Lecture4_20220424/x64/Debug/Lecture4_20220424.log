@@ -1,0 +1,12 @@
+﻿  SList.c
+  test.c
+D:\C_Learning\Lecture\data_stru_fund\Lecture4_20220424\test.c(30,21): warning C4047: 'function': 'SLTNode **' differs in levels of indirection from 'SLTNode *'
+D:\C_Learning\Lecture\data_stru_fund\Lecture4_20220424\test.c(30,16): warning C4024: 'SListPushBack': different types for formal and actual parameter 1
+D:\C_Learning\Lecture\data_stru_fund\Lecture4_20220424\test.c(31,21): warning C4047: 'function': 'SLTNode **' differs in levels of indirection from 'SLTNode *'
+D:\C_Learning\Lecture\data_stru_fund\Lecture4_20220424\test.c(31,16): warning C4024: 'SListPushBack': different types for formal and actual parameter 1
+D:\C_Learning\Lecture\data_stru_fund\Lecture4_20220424\test.c(32,21): warning C4047: 'function': 'SLTNode **' differs in levels of indirection from 'SLTNode *'
+D:\C_Learning\Lecture\data_stru_fund\Lecture4_20220424\test.c(32,16): warning C4024: 'SListPushBack': different types for formal and actual parameter 1
+D:\C_Learning\Lecture\data_stru_fund\Lecture4_20220424\test.c(33,21): warning C4047: 'function': 'SLTNode **' differs in levels of indirection from 'SLTNode *'
+D:\C_Learning\Lecture\data_stru_fund\Lecture4_20220424\test.c(33,16): warning C4024: 'SListPushBack': different types for formal and actual parameter 1
+  Generating Code...
+  Lecture4_20220424.vcxproj -> D:\C_Learning\Lecture\data_stru_fund\Lecture4_20220424\x64\Debug\Lecture4_20220424.exe
