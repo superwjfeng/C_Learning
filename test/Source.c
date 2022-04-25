@@ -179,31 +179,31 @@ void single_blank(void)
 //    return 0;
 //}
 
-////2.常规方法，拿空间换时间，时间复杂度为O(n)，空间复杂度为O(n)
-#include <stdio.h>
-
-void rotate(int* nums, int numsSize, int k)
-{
-    k %= numsSize;
-    int split[100000] = { 0 };
-    int i = 0;
-    for (i = 0; i < k; i++)
-        split[i] = nums[numsSize - k + i];
-    for (i = 0; i < numsSize - k; i++)
-        split[i + k] = nums[i];
-    for (i = 0; i < numsSize; i++)
-        nums[i] = split[i];
-}
-
-int main()
-{
-    int nums[4] = { -1, -100, 3, 99 };
-    int numsSize = sizeof(nums) / sizeof(nums[0]);
-    int k = 2;
-    rotate(nums, numsSize, k);
-
-    return 0;
-}
+//////2.常规方法，拿空间换时间，时间复杂度为O(n)，空间复杂度为O(n)
+//#include <stdio.h>
+//
+//void rotate(int* nums, int numsSize, int k)
+//{
+//    k %= numsSize;
+//    int split[100000] = { 0 };
+//    int i = 0;
+//    for (i = 0; i < k; i++)
+//        split[i] = nums[numsSize - k + i];
+//    for (i = 0; i < numsSize - k; i++)
+//        split[i + k] = nums[i];
+//    for (i = 0; i < numsSize; i++)
+//        nums[i] = split[i];
+//}
+//
+//int main()
+//{
+//    int nums[4] = { -1, -100, 3, 99 };
+//    int numsSize = sizeof(nums) / sizeof(nums[0]);
+//    int k = 2;
+//    rotate(nums, numsSize, k);
+//
+//    return 0;
+//}
 
 ////3.好方法，先n部分逆序，再n-k部分逆序，最后整体逆序，时间复杂度为O(n)，空间复杂度为O(1)
 //void swap(int* nums, int L, int R)
@@ -237,3 +237,43 @@ int main()
 //    return 0;
 //}
 
+#include <stdio.h>
+#include <string.h>
+
+int is_prime(int n)
+{
+    int count = 0;
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (!(n % i))
+            count++;
+    }
+    if (!count)
+        return 1;
+    else
+        return 0;
+}
+
+int main()
+{
+    char str[101] = { 0 };
+    char alphabet[26] = { 0 };
+    char ch = 0;
+    int max = 0;
+    int min = 100;
+    while ((ch = getchar()) != '\n')
+    {
+        alphabet[ch - 97]++;
+        if (alphabet[ch - 97] > max)
+            max = alphabet[ch - 97];
+        if (alphabet[ch - 97] < min)
+            min = alphabet[ch - 97];
+    }
+
+    if (is_prime(max - min))
+        printf("Lucky Word\n%d", max - min);
+    else
+        printf("No Answer\n%d", max - min);
+
+    return 0;
+}
