@@ -86,7 +86,7 @@ void SLPopBack(SL* ps)
 	////}
 
 	////暴力检查
-	//assert(ps->size > 0);
+	//assert(ps->size > 0); //防止删过头
 	//ps->size--;
 	SLErase(ps, ps->size - 1);
 }
@@ -110,14 +110,15 @@ void SLPopFront(SL* ps) //头删
 void SLInsert(SL* ps, int pos, SLDataType x)
 {
 	assert(ps);
-	assert(pos >= 0 && pos <= ps->size); //<=是为了适合尾插的服用
+	//assert(pos >= 0 && pos < ps->size); //保证连续存放
+	assert(pos >= 0 && pos <= ps->size); //'='是为了适合尾插的复用
 	SLCheckCapacity(ps);
 
 	int end = ps->size - 1;
 	while (end >= pos)
 	{
 		ps->a[end + 1] = ps->a[end];
-		--end;
+		--end; //从后往前挪
 	}
 	ps->a[pos] = x;
 	ps->size++;
@@ -131,7 +132,8 @@ void SLErase(SL* ps, int pos)
 	int begin = pos;
 	while (begin < ps->size - 1)
 	{
-		ps->a[begin] = ps->a[begin + 1];
+		//ps->a[begin - 1] = ps->a[begin];
+		ps->a[begin] = ps->a[begin + 1]; //从前往后挪
 		++begin;
 	}
 	
@@ -158,4 +160,3 @@ void SLModify(SL* ps, int pos, SLDataType x)
 	ps->a[pos] = x;
 
 }
-

@@ -4,16 +4,12 @@ void TestSList1()
 {
 	SLTNode* n1 = (SLTNode*)malloc(sizeof(SLTNode));
 	assert(n1);
-
 	SLTNode* n2 = (SLTNode*)malloc(sizeof(SLTNode));
 	assert(n2);
-
 	SLTNode* n3 = (SLTNode*)malloc(sizeof(SLTNode));
 	assert(n3);
-
 	SLTNode* n4 = (SLTNode*)malloc(sizeof(SLTNode));
 	assert(n4);
-
 	n1->data = 1;
 	n2->data = 2;
 	n3->data = 3;
@@ -34,6 +30,16 @@ void TestSList1()
 	SListPrint(plist);
 }
 
+//void TestSList2_old()
+//{
+//	SLTNode* plist = NULL;
+//	SListPushBack(plist, 1);
+//	SListPushBack(plist, 2);
+//	SListPushBack(plist, 3);
+//	SListPushBack(plist, 4);
+//	SListPrint(plist);
+//}
+
 void TestSList2()
 {
 	SLTNode* plist = NULL;
@@ -42,10 +48,60 @@ void TestSList2()
 	SListPushBack(&plist, 3);
 	SListPushBack(&plist, 4);
 	SListPrint(plist);
+	SListPushFront(&plist, 0);
+	SListPrint(plist);
+	SListPopFront(&plist);
+	SListPopFront(&plist);
+	SListPopFront(&plist);
+	SListPopFront(&plist);
+	SListPopFront(&plist);
+	SListPrint(plist);
+}
+
+void TestSList3()
+{
+	SLTNode* plist = NULL;
+	SListPushBack(&plist, 1);
+	SListPushBack(&plist, 2);
+	SListPushBack(&plist, 3);
+	SListPushBack(&plist, 4);
+	SListPrint(plist);
+	SListPushFront(&plist, 0);
+	SListPrint(plist);
+	SListPopBack(&plist);
+	SListPrint(plist);
+	SListPopBack(&plist);
+	SListPrint(plist);
+	SListPopBack(&plist);
+	SListPrint(plist);
+	SListPopBack(&plist);
+	SListPrint(plist);
+	SListPopFront(&plist);
+	SListPrint(plist);
+	//SListPopFront(&plist);
+	//SListPrint(plist);
+}
+
+void TestSList4()
+{
+	SLTNode* plist = NULL;
+	SListPushBack(&plist, 1);
+	SListPushBack(&plist, 2);
+	SListPushBack(&plist, 3);
+	SListPushBack(&plist, 4);
+	SListPrint(plist);
+
+	SLTNode* ret = SListFind(plist, 3);
+	if (ret)
+	{
+		printf("Find it\n");
+		ret->data = 30;
+	}
+	SListPrint(plist);
 }
 
 int main()
 {
-	TestSList2();
+	TestSList4();
 	return 0;
 }
