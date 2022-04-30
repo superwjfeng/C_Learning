@@ -98,6 +98,13 @@ void TestSList4()
 		ret->data = 30;
 	}
 	SListPrint(plist);
+
+	SLTNode* pos = SListFind(plist, 4);
+	if (pos)
+	{
+		SListInsert(&plist, pos, 40);
+	}
+	SListPrint(plist);
 }
 
 int main()
