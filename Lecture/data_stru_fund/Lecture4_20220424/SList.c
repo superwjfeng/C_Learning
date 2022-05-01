@@ -35,7 +35,10 @@ SLTNode* BuySListNode(SLTDataType x)
 //	curr = newnode;
 //}
 
-////这里的问题是我们的目标是要改变传入的实参指针变量plist，但对形参指针变量phead的改变不能影响plist，因此要传入二级指针 
+////这里的问题是我们的目标是刚开始的链表是没有结点的，其地址为NULL，我们要将第*newnode给到plist
+////要改变传入的实参指针变量plist，但对形参指针变量phead的改变不能影响plist，因此要传入二级指针
+////如果链表中已经有了至少一个结点（带哨兵位的链表），那么传一级指针也能通过tail = tail->next找到尾，并将*newnode给到tail->next
+////但哨兵位的使用会带来一系列的问题，且OJ中很多都是不带哨兵位的，因此用二级指针比较好
 //void SListPushBack(SLTNode* phead, SLTDataType x)
 //{
 //	SLTNode* newnode = (SLTNode*)malloc(sizeof(SLTNode));
@@ -80,6 +83,7 @@ void SListPushBack(SLTNode** pphead, SLTDataType x)
 	}     
 }
 
+//前插时要改变phead，即将phead给newcode，因此仍然要用二级指针
 void SListPushFront(SLTNode** pphead, SLTDataType x)
 {
 	assert(pphead);
@@ -125,7 +129,7 @@ void SListPopBack(SLTNode** pphead)
 
 		free(tail);
 		tailPrev->next = NULL;
-
+		
 		/*
 		SLTNode* tail = *pphead;
 		while (tail->next->next)

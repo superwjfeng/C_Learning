@@ -1,4 +1,4 @@
-#include "SList.h"
+﻿#include "SList.h"
 
 void TestSList1()
 {
@@ -60,7 +60,7 @@ void TestSList2()
 
 void TestSList3()
 {
-	SLTNode* plist = NULL;
+	SLTNode* plist = NULL; //当列表里一个节点都没有的时候，头结点的地址就是NULL
 	SListPushBack(&plist, 1);
 	SListPushBack(&plist, 2);
 	SListPushBack(&plist, 3);
@@ -107,8 +107,61 @@ void TestSList4()
 	SListPrint(plist);
 }
 
+SLTNode* removeElements(SLTNode* head, int val){
+     SLTNode* prev = NULL;
+     SLTNode* curr = head;
+     while (curr)
+     {
+         if (curr->data == val)
+         {
+             //头删
+             if (curr == head) //if (prev == null)
+             {
+                 head = curr->next;
+                 free(curr);
+                 curr = head;
+             }
+             else
+             {
+                 prev->next = curr->next;
+                 free(curr);
+                 curr = prev->next;
+             }
+         }
+         else
+         {
+             prev = curr;
+             curr = curr->next;
+         }
+     }
+     return head;
+ }
+
+void TestSList5()
+{
+	SLTNode* n1 = (SLTNode*)malloc(sizeof(SLTNode));
+	assert(n1);
+	SLTNode* n2 = (SLTNode*)malloc(sizeof(SLTNode));
+	assert(n2);
+	SLTNode* n3 = (SLTNode*)malloc(sizeof(SLTNode));
+	assert(n3);
+	SLTNode* n4 = (SLTNode*)malloc(sizeof(SLTNode));
+	assert(n4);
+	n1->data = 1;
+	n2->data = 2;
+	n3->data = 3;
+	n4->data = 4;
+
+	n1->next = n2;
+	n2->next = n3;
+	n3->next = n4;
+	n4->next = NULL;
+
+	SLTNode* head = removeElements(n1, 7);
+}
+
 int main()
 {
-	TestSList4();
+	TestSList5();
 	return 0;
 }
