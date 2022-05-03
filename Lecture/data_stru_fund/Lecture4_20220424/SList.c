@@ -62,6 +62,8 @@ SLTNode* BuySListNode(SLTDataType x)
 //	}
 //}
 
+//可以用一级指针传参，但要返回一个一级指针
+
 void SListPushBack(SLTNode** pphead, SLTDataType x)
 {
 	assert(pphead); //所有用二级指针的地方都得检查，因为即使1级指针为空，二级指针也不可能为空
@@ -158,7 +160,7 @@ void SListInsert(SLTNode** pphead, SLTNode* pos, SLTDataType x)
 {
 	assert(pos); //pos为空时变成尾插了
 	assert(pphead);
-	if (pos == *pphead) //要插入的是第一个结点
+	if (pos == *pphead) //要插入的是第一个结点，调用头插
 		SListPushFront(pphead, x);
 	else
 	{
