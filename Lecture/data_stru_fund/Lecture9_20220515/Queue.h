@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <stdio.h>
 #include <assert.h>
@@ -18,7 +18,7 @@ typedef struct Queue
 {
 	//int size;
 	QNode* head;
-	QNode* tail;
+	QNode* tail;  //记录尾结点对于Queue的增加元素很方便，因为Queue只能在队尾增加元素，对于单链表这么实际没有意义，因为还有其他地方的增删查改
 }Queue;
 
 void QueueInit(Queue* pq);
