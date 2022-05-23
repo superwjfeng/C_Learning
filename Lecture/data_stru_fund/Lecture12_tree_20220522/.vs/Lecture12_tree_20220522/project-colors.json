@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "913c882d-21c9-4353-ac16-eb23a77b43d3": {
+      "ProjectGuid": "913c882d-21c9-4353-ac16-eb23a77b43d3",
+      "DisplayName": "Lecture12_tree_20220522",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
