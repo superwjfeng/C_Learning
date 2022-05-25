@@ -240,40 +240,19 @@ void single_blank(void)
 #include <stdio.h>
 #include <string.h>
 
-int is_prime(int n)
+void swap(int* a, int* b)
 {
-    int count = 0;
-    for (int i = 2; i * i <= n; i++)
-    {
-        if (!(n % i))
-            count++;
-    }
-    if (!count)
-        return 1;
-    else
-        return 0;
+    int tmp = 0;
+    tmp = *b;
+    *b = *a;
+    *a = tmp;
 }
 
 int main()
 {
-    char str[101] = { 0 };
-    char alphabet[26] = { 0 };
-    char ch = 0;
-    int max = 0;
-    int min = 100;
-    while ((ch = getchar()) != '\n')
-    {
-        alphabet[ch - 97]++;
-        if (alphabet[ch - 97] > max)
-            max = alphabet[ch - 97];
-        if (alphabet[ch - 97] < min)
-            min = alphabet[ch - 97];
-    }
-
-    if (is_prime(max - min))
-        printf("Lucky Word\n%d", max - min);
-    else
-        printf("No Answer\n%d", max - min);
-
-    return 0;
+    int a = 3;
+    int b = 4;
+    printf("%d %d\n", a, b);
+    swap(&a, &b);
+    printf("%d %d", a, b);
 }

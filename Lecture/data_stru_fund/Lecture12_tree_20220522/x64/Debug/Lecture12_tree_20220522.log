@@ -3,5 +3,4 @@ D:\C_Learning\Lecture\data_stru_fund\Lecture12_tree_20220522\test.c(85,3): warni
 D:\C_Learning\Lecture\data_stru_fund\Lecture12_tree_20220522\test.c(102,3): warning C4033: 'TreeLeafSize1' must return a value
 D:\C_Learning\Lecture\data_stru_fund\Lecture12_tree_20220522\test.c(90): warning C4716: 'TreeSize1': must return a value
 D:\C_Learning\Lecture\data_stru_fund\Lecture12_tree_20220522\test.c(108): warning C4716: 'TreeLeafSize1': must return a value
-D:\C_Learning\Lecture\data_stru_fund\Lecture12_tree_20220522\test.c(142): warning C4715: 'TreeFind': not all control paths return a value
   Lecture12_tree_20220522.vcxproj -> D:\C_Learning\Lecture\data_stru_fund\Lecture12_tree_20220522\x64\Debug\Lecture12_tree_20220522.exe

@@ -133,26 +133,33 @@ int TreeKLevel(BTNode* root, int k)
 // 二叉树查找值为x的结点
 BTNode* TreeFind(BTNode* root, BTDataType x)
 {
-	//if (root == NULL)
-	//	return NULL;
-	//if (root->data == x)
-	//	return root;
-	//TreeFind(root->left, x);
-	//TreeFind(root->right, x);
-
 	if (root == NULL)
 		return NULL;
 	if (root->data = x)
 		return root;
 	
-	BTNode* ret1 = TreeFind(root->left, x);
+	BTNode* ret1 = TreeFind(root->left, x); //前序遍历是最优的
 	if (ret1)
 		return ret1;
+
+	//如果放在这里就是中序，但这样效率可能没前序高
+	//if (root->data = x)
+	//	return root;
 	
 	BTNode* ret2 = TreeFind(root->right, x);
 	if (ret2)
 		return ret2;
 	return NULL;
+}
+
+int TreeDepth(BTNode* root)
+{
+	if (root == NULL)
+		return 0;
+
+	int leftDepth = TreeDepth(root->left);
+	int rightDepth = TreeDepth(root->right);
+	return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1;
 }
 
 int main()
@@ -179,6 +186,7 @@ int main()
 	printf("Tree leaf size in 2 level: %d\n", TreeKLevel(root, 2));
 	printf("Tree leaf size in 3 level: %d\n", TreeKLevel(root, 3));
 	printf("Tree leaf size in 4 level: %d\n", TreeKLevel(root, 4));
-	printf("%p", TreeFind(root, 5));
+	printf("%p\n", TreeFind(root, 5));
+	printf("%d\n", TreeDepth(root));
 	return 0; 
 }
