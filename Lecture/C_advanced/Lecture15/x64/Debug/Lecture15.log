@@ -1,4 +1,1 @@
-﻿  Source.c
-D:\C_Learning\Lecture\C_advanced\Lecture15\Source.c(152,1): warning C4005: 'MAX': macro redefinition
-D:\C_Learning\Lecture\C_advanced\Lecture15\Source.c(19): message : see previous definition of 'MAX'
-  Lecture15.vcxproj -> D:\C_Learning\Lecture\C_advanced\Lecture15\x64\Debug\Lecture15.exe
+﻿D:\VS\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(439,5): error MSB8020: The build tools for v143 (Platform Toolset = 'v143') cannot be found. To build using the v143 build tools, please install v143 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+#include "Queue.h"
 
 typedef int BTDataType;
 typedef struct BinaryTreeNode
@@ -162,6 +163,45 @@ int TreeDepth(BTNode* root)
 	return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1;
 }
 
+void TreeDestroy(BTNode* root)
+{
+	if (root == NULL)
+		return;
+	//后序销毁 
+	TreeDestroy(root->left);
+	TreeDestroy(root->right);
+	free(root);
+ }
+
+void LevelOrder(BTNode* root) //层序遍历，借助队列实现
+{
+	Queue q;
+	QueueInit(&q);
+	if (root)
+	{
+		QueuePush(&q, root);
+	}
+	while(!QueueEmpty(&q))
+	{
+		BTNode* front = QueueFront(&q);
+		printf("%d ", front->data);
+		QueuePop(&q);
+		if (front->left)
+		{
+			QueuePush(&q, front->left);
+		}
+		if (front->right)
+		{
+			QueuePush(&q, front->right);
+		}
+	}
+	printf("\n");
+	QueueDestroy(&q);
+}
+
+//判断是否是完全二叉树
+int BinaryTreeComplete(BTNode* root)
+
 int main()
 {
 	BTNode* root = CreatBinaryTree();
@@ -174,7 +214,7 @@ int main()
 
 	count = 0; //保险起见每次调用TreeSize之前count置0一下
 	TreeSize1(root);
-	printf("Tree size:%d\n", count);
+	printf("Tree size:%d\n", count); 
 	
 	printf("Tree size:%d\n", TreeSize2(root));
 
@@ -187,6 +227,10 @@ int main()
 	printf("Tree leaf size in 3 level: %d\n", TreeKLevel(root, 3));
 	printf("Tree leaf size in 4 level: %d\n", TreeKLevel(root, 4));
 	printf("%p\n", TreeFind(root, 5));
-	printf("%d\n", TreeDepth(root));
+	printf("Tree depth is: %d\n", TreeDepth(root));
+
+	LevelOrder(root);
+	TreeDestroy(root);
+	root = NULL;
 	return 0; 
 }
